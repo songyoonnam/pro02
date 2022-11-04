@@ -5,7 +5,7 @@ public class Notice {
 	private String title;
 	private String content;
 	private String author;
-	private String resdate;
+	private String resDate;
 	
 	public int getNotiNo() {
 		return notiNo;
@@ -31,11 +31,11 @@ public class Notice {
 	public void setAuthor(String author) {
 		this.author = author;
 	}
-	public String getResdate() {
-		return resdate;
+	public String getResDate() {
+		return resDate;
 	}
-	public void setResdate(String resdate) {
-		this.resdate = resdate;
+	public void setResdate(String resDate) {
+		this.resDate = resDate;
 	}
 	
 	

@@ -1,4 +1,4 @@
-package test;
+package kr.co.myshop.test;
 
 import static org.junit.Assert.*;
 

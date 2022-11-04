@@ -9,10 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class MemberLoginCtrl
+ * Servlet implementation class DeleteBoardCtrl
  */
-@WebServlet("/MemberLoginCtrl")
-public class MemberLoginCtrl extends HttpServlet {
+@WebServlet("/DeleteBoardCtrl")
+public class DeleteBoardCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
 	private static final String URL = "jdbc:mysql://locolhost:3306/myshop?serverTimezone=Asial/Seoul";
@@ -23,22 +23,15 @@ public class MemberLoginCtrl extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MemberLoginCtrl() {
+    public DeleteBoardCtrl() {
         super();
         // TODO Auto-generated constructor stub
     }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 	}
 

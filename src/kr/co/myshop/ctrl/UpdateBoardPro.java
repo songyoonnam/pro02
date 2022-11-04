@@ -9,10 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class MemberLoginCtrl
+ * Servlet implementation class UpdateBoardPro
  */
-@WebServlet("/MemberLoginCtrl")
-public class MemberLoginCtrl extends HttpServlet {
+@WebServlet("/UpdateBoardPro")
+public class UpdateBoardPro extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
 	private static final String URL = "jdbc:mysql://locolhost:3306/myshop?serverTimezone=Asial/Seoul";
@@ -23,7 +23,7 @@ public class MemberLoginCtrl extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MemberLoginCtrl() {
+    public UpdateBoardPro() {
         super();
         // TODO Auto-generated constructor stub
     }
