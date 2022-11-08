@@ -33,16 +33,24 @@ public class GetBoardDetailCtrl extends HttpServlet {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			this.sql = "select * from notice order by notino desc";
 			Connection con = DriverManager.getConnection("jdbc:mysql://locolhost:3306/myshop?serverTimezone=Asial/Seoul", "root", "a1234");
+			con.setAutoCommit(false);
 			PreparedStatement pstmt = con.prepareStatement(this.sql);
 			pstmt.setInt(1, notiNo);
 			ResultSet rs = pstmt.executeQuery();
 			Notice vo = new Notice();
 			if (rs.next()) {
+				sql ="update notice set visited=visited+1 where notino=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, notiNo);
+				pstmt.executeLargeUpdate();
+				con.commit();
+				con.setAutoCommit(true);
 				vo.setNotiNo(rs.getInt("notino"));
 				vo.setTitle(rs.getString("title"));
 				vo.setContent(rs.getString("content"));
 				vo.setAuthor(rs.getString("author"));
 				vo.setResdate(rs.getString("resdate"));
+				vo.setVisited(rs.getInt("visited"));
 			}
 			request.setAttribute("notice", vo);
 			RequestDispatcher view = request.getRequestDispatcher("./notice/boardDetail.jsp"); 
