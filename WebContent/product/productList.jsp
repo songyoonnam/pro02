@@ -17,9 +17,9 @@
 <style>
 .in_container { clear:both; width:1400px; margin:0 auto; }
 .in_container:after { content:""; display:block; clear:both; }
-.card-title { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.card-title { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-size:16px; }
 .card-text {   overflow: hidden;  text-overflow: ellipsis;  display: -webkit-box;
-  -webkit-line-clamp: 2;  -webkit-box-orient: vertical; }
+  -webkit-line-clamp: 2;  -webkit-box-orient: vertical; font-size:13px; }
 </style>
 </head>
 <body>
@@ -28,8 +28,8 @@
 	List<Product> proList = (ArrayList<Product>) request.getAttribute("proList");
 %>
 <div class="content container" id="content">
-	<h2 class="title">제품 목록</h2>
-	<ul class="row" id="best">
+<br><br>
+	<ul class="row" id="best" style="list-style: none;">
 	<% for(int i=0;i<proList.size();i++) {
 		Product pro = proList.get(i);
 	%>
@@ -37,10 +37,10 @@
 			<div class="card" style="width: 18rem;">
 			  <img src="<%=request.getContextPath() %>/upload/<%=pro.getProPic() %>" class="card-img-top" alt="<%=pro.getProName() %>">
 			  <div class="card-body">
-			    <h5 class="card-title"><%=pro.getProName() %></h5>
+			    <h5 class="card-title"><strong><%=pro.getProName() %></strong></h5>
 			    <p class="card-text"><%=pro.getProSpec() %></p>
-			    <p class="card-text"><strong style="color:red;"><%=pro.getProPrice() %>원</strong> (<del><%=pro.getOriPrice() %>)</del></p>
-			    <a href="<%=request.getContextPath() %>/GetProductDetailCtrl?proNo=<%=pro.getProNo() %>" class="btn btn-primary">제품 상세보기</a>
+			    <p class="card-text"><strong style="color:#000;"><%=pro.getProPrice() %></strong></p>
+			    <a href="<%=request.getContextPath() %>/GetProductDetailCtrl?proNo=<%=pro.getProNo() %>" class="btn btn-outline-dark">상세보기</a>
 			  </div>
 			</div>
 		</li>
@@ -48,14 +48,14 @@
 	<% if(proList.size()==0){ %>
 		<li style="width:1000px;">
 			<hr>
-			<p>해당 카테고리의 상품이 존재하지 않습니다.</p>
+			<p>해당 카테고리의 상품이 존재하지 않습니다</p>
 			<hr>
 		</li>
 	<% } %>
 	</ul>
 	<% if(sid.equals("admin")) { %>
 	<div class="btn-group">
-		<a href="<%=request.getContextPath() %>/InsertProductCategoryCtrl" class="btn btn-danger">상품 등록</a>
+		<a href="<%=request.getContextPath() %>/InsertProductCategoryCtrl" class="btn btn-outline-dark">상품 등록</a>
 	</div>
 	<% } %>
 </div>

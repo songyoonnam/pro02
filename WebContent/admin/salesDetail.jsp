@@ -61,10 +61,10 @@
 				</tbody>
 			</table>
 			<div class="btn-group">
-				<a href="<%=request.getContextPath() %>/GetMemberSalesInfoCtrl" class="btn btn-danger">목록으로</a>
+				<a href="<%=request.getContextPath() %>/GetMemberSalesInfoCtrl" class="btn btn-outline-dark">목록</a>
 				<% if(vo.getParselState()==0) { %>
-				<a href="<%=request.getContextPath() %>/DeleteSalesCtrl?saleNo=<%=vo.getSaleNo() %>" class="btn btn-primary">직권 결제 취소</a>
-				<a href="<%=request.getContextPath() %>/UpdateParselCtrl?parselNo=<%=vo.getParselNo() %>" class="btn btn-danger">배송 정보 등록</a>
+				<a href="<%=request.getContextPath() %>/DeleteSalesCtrl?saleNo=<%=vo.getSaleNo() %>" class="btn btn-outline-dark">직권 결제 취소</a>
+				<a href="<%=request.getContextPath() %>/UpdateParselCtrl?parselNo=<%=vo.getParselNo() %>" class="btn btn-outline-dark">배송 정보 등록</a>
 				<% } %>
 			</div>
 		</main>

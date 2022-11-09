@@ -22,7 +22,7 @@ public class GetSalesProductCtrl extends HttpServlet {
   
   private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
   
-  private static final String URL = "jdbc:mysql://localhost:3306/myshop1?serverTimezone=Asia/Seoul";
+  private static final String URL = "jdbc:mysql://localhost:3306/myshop?serverTimezone=Asia/Seoul";
   
   private static final String USER = "root";
   
@@ -34,7 +34,7 @@ public class GetSalesProductCtrl extends HttpServlet {
     int proNo = Integer.parseInt(request.getParameter("proNo"));
     try {
       Class.forName("com.mysql.cj.jdbc.Driver");
-      Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/myshop1?serverTimezone=Asia/Seoul", "root", "a1234");
+      Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/myshop?serverTimezone=Asia/Seoul", "root", "a1234");
       this.sql = "select a.prono, a.cateno, a.proname, a.prospec, a.oriprice, ";
       this.sql = String.valueOf(this.sql) + "a.discountrate, a.propic, a.propic2, b.amount from ";
       this.sql = String.valueOf(this.sql) + "product a right join wearing b on a.prono=b.prono ";

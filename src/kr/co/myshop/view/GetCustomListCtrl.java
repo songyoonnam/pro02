@@ -24,7 +24,7 @@ public class GetCustomListCtrl extends HttpServlet {
   
   private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
   
-  private static final String URL = "jdbc:mysql://localhost:3306/myshop1?serverTimezone=Asia/Seoul";
+  private static final String URL = "jdbc:mysql://localhost:3306/myshop?serverTimezone=Asia/Seoul";
   
   private static final String USER = "root";
   
@@ -36,7 +36,7 @@ public class GetCustomListCtrl extends HttpServlet {
     try {
       Class.forName("com.mysql.cj.jdbc.Driver");
       this.sql = "select * from custom order by regdate desc";
-      Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/myshop1?serverTimezone=Asia/Seoul", "root", "a1234");
+      Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/myshop?serverTimezone=Asia/Seoul", "root", "a1234");
       PreparedStatement pstmt = con.prepareStatement(this.sql);
       ResultSet rs = pstmt.executeQuery();
       List<Custom> cusList = new ArrayList<>();

@@ -12,7 +12,10 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 <link rel="stylesheet" href="common.css">
 <style>
-.title { padding-top:36px; padding-bottom:20px; }
+.title { padding-top:36px; padding-bottom:20px; font-size:25px; text-align:center; }
+.btn-group { padding-left:450px; }
+.table { font-size:13px; }
+.form-control { font-size:13px; }
 </style>
 </head>
 <body>
@@ -42,19 +45,19 @@
 				</tr>
 				<tr>
 					<th>상품명</th>
-					<td><input type="text" name="proName" id="title" placeholder="제목 입력" class="form-control" autofocus required /></td>
+					<td><input type="text" name="proName" id="title" placeholder="상품명 입력" class="form-control" autofocus required /></td>
 				</tr>
 				<tr>
 					<th>제품 설명</th>
-					<td><textarea cols="80" rows="6" name="proSpec" id="proSpec" class="form-control" required></textarea></td>
+					<td><textarea cols="80" rows="6" name="proSpec" id="proSpec" placeholder="제품 설명 입력" class="form-control" required></textarea></td>
 				</tr>
 				<tr>
 					<th>제품 가격</th>
-					<td><input type="text" name="oriPrice" id="oriPrice" class="form-control" required></td>
+					<td><input type="text" name="oriPrice" id="oriPrice" placeholder="제품 가격 입력" class="form-control" required></td>
 				</tr>
 				<tr>
 					<th>할인율</th>
-					<td><input type="text" name="discountRate" id="discountRate" class="form-control" required></td>
+					<td><input type="text" name="discountRate" id="discountRate" placeholder="할인율 입력" class="form-control" required></td>
 				</tr>
 				<tr>
 					<th>제품 이미지1</th>
@@ -67,9 +70,9 @@
 			</tbody>
 		</table>
 		<div class="btn-group">
-			<input type="submit" name="submit-btn" class="btn btn-info" value="제품 등록">
-			<input type="reset" name="reset-btn" class="btn btn-info" value="취소">
-			<a href="<%=request.getContextPath() %>/GetProductListCtrl" class="btn btn-danger">목록으로</a>
+			<input type="submit" name="submit-btn" class="btn btn-outline-dark" value="제품 등록">&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="reset" name="reset-btn" class="btn btn-outline-dark" value="취소">&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="<%=request.getContextPath() %>/GetProductListCtrl" class="btn btn-outline-dark">목록</a>
 		</div>
 	</form>	
 </div>

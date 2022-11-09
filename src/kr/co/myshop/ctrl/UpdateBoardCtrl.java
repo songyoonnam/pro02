@@ -22,7 +22,7 @@ public class UpdateBoardCtrl extends HttpServlet {
   
   private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
   
-  private static final String URL = "jdbc:mysql://localhost:3306/myshop1?serverTimezone=Asia/Seoul";
+  private static final String URL = "jdbc:mysql://localhost:3306/myshop?serverTimezone=Asia/Seoul";
   
   private static final String USER = "root";
   
@@ -35,7 +35,7 @@ public class UpdateBoardCtrl extends HttpServlet {
     try {
       Class.forName("com.mysql.cj.jdbc.Driver");
       this.sql = "select * from notice where notino=?";
-      Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/myshop1?serverTimezone=Asia/Seoul", "root", "a1234");
+      Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/myshop?serverTimezone=Asia/Seoul", "root", "a1234");
       PreparedStatement pstmt = con.prepareStatement(this.sql);
       pstmt.setInt(1, notiNo);
       ResultSet rs = pstmt.executeQuery();
@@ -45,7 +45,7 @@ public class UpdateBoardCtrl extends HttpServlet {
         vo.setTitle(rs.getString("title"));
         vo.setContent(rs.getString("content"));
         vo.setAuthor(rs.getString("author"));
-        vo.setResdate(rs.getString("resdate"));
+        vo.setResDate(rs.getString("resdate"));
       } 
       request.setAttribute("notice", vo);
       RequestDispatcher view = request.getRequestDispatcher("./notice/updateBoard.jsp");

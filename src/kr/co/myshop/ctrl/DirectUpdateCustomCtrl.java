@@ -19,7 +19,7 @@ public class DirectUpdateCustomCtrl extends HttpServlet {
   
   private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
   
-  private static final String URL = "jdbc:mysql://localhost:3306/myshop1?serverTimezone=Asia/Seoul";
+  private static final String URL = "jdbc:mysql://localhost:3306/myshop?serverTimezone=Asia/Seoul";
   
   private static final String USER = "root";
   
@@ -49,7 +49,7 @@ public class DirectUpdateCustomCtrl extends HttpServlet {
     try {
       Class.forName("com.mysql.cj.jdbc.Driver");
       this.sql = "update custom set cuspw=?, cusname=?, tel=?, point=?, level=? where cusid=?";
-      Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/myshop1?serverTimezone=Asia/Seoul", "root", "a1234");
+      Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/myshop?serverTimezone=Asia/Seoul", "root", "a1234");
       PreparedStatement pstmt = con.prepareStatement(this.sql);
       pstmt.setString(1, cusPw);
       pstmt.setString(2, cusName);

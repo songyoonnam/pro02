@@ -9,20 +9,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>회원정보 확인 및 수정</title>
+<title>회원정보</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-latest.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 <link rel="stylesheet" href="common.css">
 
 <style>
-.title { padding-top:36px; padding-bottom:20px; }
+.title { padding-top:36px; padding-bottom:20px; font-size:25px; text-align:center; }
+.btn-group { padding-left:470px; }
+.table {font-size:13px; }
 </style>
 </head>
 <body>
 <%@ include file="../header.jsp" %>
 <div class="content container" id="content">
-	<h2 class="title">회원정보 확인 및 수정</h2>
+	<h2 class="title">회원정보</h2>
 	<form name="frm1" id="frm1" action="<%=request.getContextPath() %>/UpdateCustomCtrl" method="post" onsubmit="return updateCheck(this)">
 		<table class="table">
 			<tbody>
@@ -35,7 +37,7 @@
 				<tr>
 					<th>비밀번호</th>
 					<td>
-						<p>비밀번호 변경시에만 입력하시기 바랍니다.</p>
+						<p>비밀번호 변경시에만 입력하시기 바랍니다</p>
 						<input type="hidden" name="cusPw" id="cusPw" value="<%=custom.getCusPw() %>">
 						<input type="password" name="edit_cusPw" id="edit_cusPw" placeholder="비밀번호 입력" class="form-control" />
 					</td>
@@ -45,7 +47,7 @@
 					<td><input type="password" name="edit_cusPw2" id="edit_cusPw2" placeholder="비밀번호 입력" class="form-control" /></td>
 				</tr>
 				<tr>
-					<th>고객이름</th>
+					<th>이름</th>
 					<td><input type="text" name="cusName" id="cusName" placeholder="이름 입력" class="form-control" value="<%=custom.getCusName() %>" required /></td>
 				</tr>
 				<tr>
@@ -53,11 +55,11 @@
 					<td>
 						<p><%=custom.getAddress() %></p>
 						<input type="hidden" name="address" id="address">
-						<p>주소 변경시에만 입력하시기 바랍니다.</p>
+						<p>주소 변경시에만 입력하시기 바랍니다</p>
 						<input type="text" name="editaddress1" id="editaddress1" placeholder="기본 주소 입력" class="form-control" /><br>
 						<input type="text" name="editaddress2" id="editaddress2" placeholder="상세 주소 입력" class="form-control" /><br>
 						<input type="text" name="editpostcode" id="editpostcode" style="width:160px;float:left;margin-right:20px;" placeholder="우편번호" class="form-control">
-						<button type="button" id="post_btn" onclick="findAddr()" class="btn btn-primary">우편번호 검색</button>
+						<button type="button" id="post_btn" onclick="findAddr()" class="btn btn-outline-dark">우편번호 검색</button>
 					</td>
 				</tr>
 				<tr>
@@ -91,14 +93,14 @@
 			</tbody>
 		</table>
 		<div class="btn-group">
-			<input type="submit" name="submit-btn" class="btn btn-info" value="정보수정">
-			<input type="reset" name="reset-btn" class="btn btn-info" value="취소">
+			<input type="submit" name="submit-btn" class="btn btn-outline-dark" value="수정">&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="reset" name="reset-btn" class="btn btn-outline-dark" value="취소">
 		</div>
 	</form>	
 	<script>
 	function updateCheck(f){
 		if(f.edit_cusPw.value!=f.edit_cusPw2.value){
-			alert("비밀번호와 비밀번호 확인이 서로 다릅니다.");
+			alert("비밀번호와 비밀번호 확인이 서로 다릅니다");
 			f.edit_cusPw.focus();
 			return false;
 		}

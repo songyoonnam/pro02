@@ -6,23 +6,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>회원 약관 동의</title>
+<title>회원 약관</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-latest.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 <link rel="stylesheet" href="../common.css">
 <style>
-.title { padding-top:36px; padding-bottom:20px; }
+.title { padding-top:36px; padding-bottom:20px; text-align:center; font-size:22px; }
 .agree_fr { width: 900px; white-space:pre-wrap; margin: 10px auto; 
-padding: 24px; border:2px solid #eee; height:600px; overflow-y:auto; }
+padding: 24px; border:2px solid #eee; height:600px; overflow-y:auto; font-size:12px; }
+.btn-group { padding-left: 480px; }
+.form-check-input { padding-left: 470px; }
+.form-check-label { padding-left: 465px; font-size:13px; }
+.form-check { padding-left: 470px;  }
 </style>
 </head>
 <body>
 <%@ include file="../header.jsp" %>
 <div class="content container" id="content">
-	<h2 class="title">회원 약관 동의</h2>
+	<h2 class="title">회원 약관</h2>
 	<article class="agree_fr">
-<h2>제1장 총칙</h2>
+<strong>제1장 총칙</strong>
 
 제1조(목적) 이 약관은 회사가 온라인으로 제공하는 디지털콘텐츠(이하 "콘텐츠"라고 한다) 및 제반서비스의 이용과 관련하여 회사와 이용자와의 권리, 의무 및 책임사항 등을 규정함을 목적으로 합니다. 
 제2조(정의) 이 약관에서 사용하는 용어의 정의는 다음과 같습니다.   
@@ -322,8 +326,9 @@ padding: 24px; border:2px solid #eee; height:600px; overflow-y:auto; }
 		<input type="checkbox" id="ck_item1" name="ck_item" class="form-check-input">
 		<label for="ck_item1" class="form-check-label">약관에 동의</label><br><br>
 	</div>
+		<h2 class="title">개인정보처리방침</h2>
 	<article class="agree_fr">
-	 제1장 총칙
+	 <strong>제1장 총칙</strong>
 
  제1조(목적) 이 지침은 「개인정보 보호법」(이하 "법"이라 한다) 제12조제1항에 따른 개인정보의 처리에 관한 기준, 개인정보 침해의 유형 및 예방조치 등에 관한 세부적인 사항을 규정함을 목적으로 한다. 
  제2조(용어의 정의) 이 지침에서 사용하는 용어의 뜻은 다음과 같다.   
@@ -907,14 +912,14 @@ padding: 24px; border:2px solid #eee; height:600px; overflow-y:auto; }
 	<div class="form-check">
 		<input type="checkbox" id="ck_item2" name="ck_item2" class="form-check-input">
 		<label for="ck_item2" class="form-check-label">개인정보처리방침에 동의</label><br><br>
-	</div><br><hr><br>
+	</div><br>
 	<div class="form-check">
-		<label for="ck_item3" onclick="protocol()" class="form-check-label"><strong>전체 약관에 동의</strong></label>
+		<label for="ck_item3" onclick="protocol()" class="form-check-label"><strong>전체 동의(CLICK)</strong></label>
 	</div>
-	<br><hr><br>	
+	<br>	
 	<div class="btn-group">
-		<button type="button" id="in_btn1" class="btn btn-primary">다음 단계</button>
-	</div>
+		<button type="button" id="in_btn1" class="btn btn-outline-dark">다음 페이지</button>
+	</div><br><br>
 	<script>
 	var ck_item1 = document.getElementById("ck_item1");
 	var ck_item2 = document.getElementById("ck_item2");
@@ -923,7 +928,7 @@ padding: 24px; border:2px solid #eee; height:600px; overflow-y:auto; }
 		if(ck_item1.checked && ck_item2.checked){
 			location.href = "insertCustom.jsp";
 		} else {
-			alert("약관 및 개인정보처리 방침에 동의하지 않으셨습니다.");
+			alert("약관 및 개인정보처리 방침에 동의하지 않으셨습니다");
 			return;
 		}
 	});

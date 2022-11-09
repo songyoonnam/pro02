@@ -34,7 +34,7 @@
 			<table class="table">
 				<thead>
 					<tr>
-						<th>연번</th><th>판매 제품 코드</th><th>판매일</th><th>배송상태</th>
+						<th>번호</th><th>판매 제품 코드</th><th>판매일</th><th>배송상태</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -47,13 +47,13 @@
 					<td><%=vo.getSaleDate() %></td>
 					<td>
 						<% if(vo.getParselState()==0) { %>
-						<span>배송전</span>
+						<span>배송 전</span>
 						<% } else if(vo.getParselState()==1) { %>
 						<span>배송중</span>
 						<% } else if(vo.getParselState()==2) { %>
-						<span>도착</span>
+						<span>배송완료</span>
 						<% } else if(vo.getParselState()==3) { %>
-						<span>구매결정 완료</span>
+						<span>구매확정</span>
 						<% } %>
 					</td>
 				</tr>

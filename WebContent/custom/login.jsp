@@ -13,7 +13,9 @@
 <link rel="stylesheet" href="../common.css">
 
 <style>
-.title { padding-top:36px; padding-bottom:20px; }
+.title { padding-top:36px; padding-bottom:20px; font-size:25px; text-align:center; }
+.btn-group { padding-left:450px; }
+.table { font-size:13px; }
 </style>
 </head>
 <body>
@@ -36,12 +38,12 @@
 			</tbody>
 		</table>
 		<div class="btn-group">
-			<input type="submit" name="submit-btn" class="btn btn-info" value="로그인">
-			<input type="reset" name="reset-btn" class="btn btn-info" value="취소">
-			<a href="<%=request.getContextPath() %>/custom/membership.jsp" class="btn btn-danger">회원가입</a>
+			<input type="submit" name="submit-btn" class="btn btn-outline-dark" value="로그인">&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="reset" name="reset-btn" class="btn btn-outline-dark" value="취소">&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="<%=request.getContextPath() %>/custom/membership.jsp" class="btn btn-outline-dark">회원가입</a>
 		</div>
 	</form>	
-</div>
+</div><br><br>
 <%@ include file="../footer.jsp" %>
 </body>
 </html>

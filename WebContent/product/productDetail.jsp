@@ -47,10 +47,10 @@
 				<td><%=vo.getProSpec() %></td>
 			</tr>
 			<tr>
-				<th>제품가격</th>
+				<th>제품 가격</th>
 				<td>
-					판매가격 : <strong style="color:red"><%=vo.getProPrice() %></strong> <br>
-					세일전 가격 : (<del><%=vo.getOriPrice() %></del>) 
+					판매 가격 : <strong style="color:red"><%=vo.getProPrice() %></strong> <br>
+					세일 전 가격 : (<del><%=vo.getOriPrice() %></del>) 
 				</td>
 			</tr>
 			<tr>
@@ -59,21 +59,21 @@
 				<% if(vo.getAmount()!=0) { %>
 					<%=vo.getAmount() %>
 				<% } else { %>
-				<strong style="color:red">[품절]</strong>해당 상품의 재고가 존재하지 않습니다.
+				<strong style="color:red">[품절]</strong>해당 상품의 재고가 존재하지 않습니다
 				<% } %>
 				</td>
 			</tr>
 		</tbody>
 	</table>
 	<div class="btn-group">
-		<a href="<%=request.getContextPath() %>/GetProductListCtrl" class="btn btn-danger">목록으로</a>
+		<a href="<%=request.getContextPath() %>/GetProductListCtrl" class="btn btn-danger">목록</a>
 		<% if(sid.equals("admin")) { %>
-		<a href="<%=request.getContextPath() %>/DeleteProductCtrl?proNo=<%=vo.getProNo() %>" class="btn btn-primary">제품 삭제</a>
-		<a href="<%=request.getContextPath() %>/UpdateProductCtrl?proNo=<%=vo.getProNo() %>" class="btn btn-danger">제품 정보 수정</a>
-		<a href="<%=request.getContextPath() %>/GetProductWearingCtrl?proNo=<%=vo.getProNo() %>" class="btn btn-danger">제품 입고</a>
+		<a href="<%=request.getContextPath() %>/DeleteProductCtrl?proNo=<%=vo.getProNo() %>" class="btn btn-outline-dark">제품 삭제</a>
+		<a href="<%=request.getContextPath() %>/UpdateProductCtrl?proNo=<%=vo.getProNo() %>" class="btn btn-outline-dark">제품 정보 수정</a>
+		<a href="<%=request.getContextPath() %>/GetProductWearingCtrl?proNo=<%=vo.getProNo() %>" class="btn btn-outline-dark">제품 입고</a>
 		<% } %>
 		<% if(vo.getAmount()!=0) { %>
-		<a href="<%=request.getContextPath() %>/GetSalesProductCtrl?proNo=<%=vo.getProNo() %>" class="btn btn-primary">제품 구매</a>
+		<a href="<%=request.getContextPath() %>/GetSalesProductCtrl?proNo=<%=vo.getProNo() %>" class="btn btn-outline-dark">제품 구매</a>
 		<% } %>
 	</div>
 </div>

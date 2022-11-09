@@ -16,7 +16,7 @@ public class UpdateSalesProCtrl extends HttpServlet {
   
   private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
   
-  private static final String URL = "jdbc:mysql://localhost:3306/myshop1?serverTimezone=Asia/Seoul";
+  private static final String URL = "jdbc:mysql://localhost:3306/myshop?serverTimezone=Asia/Seoul";
   
   private static final String USER = "root";
   
@@ -36,7 +36,7 @@ public class UpdateSalesProCtrl extends HttpServlet {
     try {
       Class.forName("com.mysql.cj.jdbc.Driver");
       sql = "update parsel set parseladdr=?, custel=? where parselno=?";
-      Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/myshop1?serverTimezone=Asia/Seoul", "root", "a1234");
+      Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/myshop?serverTimezone=Asia/Seoul", "root", "a1234");
       PreparedStatement pstmt = con.prepareStatement(sql);
       pstmt.setString(1, parselAddr);
       pstmt.setString(2, cusTel);

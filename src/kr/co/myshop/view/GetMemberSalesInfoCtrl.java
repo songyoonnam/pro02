@@ -25,7 +25,7 @@ public class GetMemberSalesInfoCtrl extends HttpServlet {
   
   private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
   
-  private static final String URL = "jdbc:mysql://localhost:3306/myshop1?serverTimezone=Asia/Seoul";
+  private static final String URL = "jdbc:mysql://localhost:3306/myshop?serverTimezone=Asia/Seoul";
   
   private static final String USER = "root";
   
@@ -38,7 +38,7 @@ public class GetMemberSalesInfoCtrl extends HttpServlet {
     try {
       String sid = (String)session.getAttribute("sid");
       Class.forName("com.mysql.cj.jdbc.Driver");
-      Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/myshop1?serverTimezone=Asia/Seoul", "root", "a1234");
+      Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/myshop?serverTimezone=Asia/Seoul", "root", "a1234");
       this.sql = "select * from sales where cusid=? order by saleno desc";
       PreparedStatement pstmt = con.prepareStatement(this.sql);
       pstmt.setString(1, sid);

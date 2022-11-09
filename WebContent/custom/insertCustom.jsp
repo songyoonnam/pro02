@@ -13,7 +13,10 @@
 <link rel="stylesheet" href="../common.css">
 
 <style>
-.title { padding-top:36px; padding-bottom:20px; }
+.title { padding-top:36px; padding-bottom:20px; text-align:center; font-size:25px;}
+.form-row { font-size:13px; }
+.form-control { font-size:13px; }
+.btn-group { padding-left:450px; }
 #cusId { width:780px; float:left; margin-right:30px; margin-left:6px; }
 </style>
 </head>
@@ -29,7 +32,7 @@
 					<td>
 						<div class="form-row">
 							<input type="text" name="cusId" id="cusId" placeholder="아이디 입력" class="form-control" autofocus required />
-							<input type="button" class="btn btn-primary" value="아이디 중복 확인" onclick="idCheck()">
+							<input type="button" class="btn btn-outline-dark" value="아이디 중복 확인" onclick="idCheck()">
 							<input type="hidden" name="idck" id="idck" value="no">
 						</div>
 					</td>
@@ -43,7 +46,7 @@
 					<td><input type="password" name="cusPw2" id="cusPw2" placeholder="비밀번호 입력" class="form-control" required /></td>
 				</tr>
 				<tr>
-					<th>고객이름</th>
+					<th>이름</th>
 					<td><input type="text" name="cusName" id="cusName" placeholder="이름 입력" class="form-control" required /></td>
 				</tr>
 				<tr>
@@ -51,7 +54,7 @@
 					<td><input type="text" name="address1" id="address1" placeholder="기본 주소 입력" class="form-control" required /><br>
 					<input type="text" name="address2" id="address2" placeholder="상세 주소 입력" class="form-control" required /><br>
 					<input type="text" name="postcode" id="postcode" style="width:160px;float:left;margin-right:20px;" placeholder="우편번호" class="form-control">
-					<button id="post_btn" onclick="findAddr()" class="btn btn-primary">우편번호 검색</button>
+					<button id="post_btn" onclick="findAddr()" class="btn btn-outline-dark">우편번호 검색</button>
 					</td>
 				</tr>
 				<tr>
@@ -61,9 +64,9 @@
 			</tbody>
 		</table>
 		<div class="btn-group">
-			<input type="submit" name="submit-btn" class="btn btn-info" value="회원가입">
-			<input type="reset" name="reset-btn" class="btn btn-info" value="취소">
-			<a href="<%=request.getContextPath() %>/custom/login.jsp" class="btn btn-danger">로그인</a>
+			<input type="submit" name="submit-btn" class="btn btn-outline-dark" value="회원가입">&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="reset" name="reset-btn" class="btn btn-outline-dark" value="취소">&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="<%=request.getContextPath() %>/custom/login.jsp" class="btn btn-outline-dark">로그인</a>
 		</div>
 	</form>	
 	<script>
@@ -73,12 +76,12 @@
 	}
 	function joinCheck(f){
 		if(f.cusPw.value!=f.cusPw2.value){
-			alert("비밀번호와 비밀번호 확인이 서로 다릅니다.");
+			alert("비밀번호와 비밀번호 확인이 서로 다릅니다");
 			f.cusPw.focus();
 			return false;
 		}
 		if(f.idck.value!="yes"){
-			alert("아이디 중복 체크를 하지 않으셨습니다.");
+			alert("아이디 중복 체크를 하지 않으셨습니다");
 			return false;
 		}
 	}
