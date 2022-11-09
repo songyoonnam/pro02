@@ -13,7 +13,9 @@
 <link rel="stylesheet" href="common.css">
 
 <style>
-.title { padding-top:36px; padding-bottom:20px; }
+.title { padding-top:36px; padding-bottom:20px; font-size:25px; text-align:center; }
+.btn-group { padding-left:450px; }
+.table { font-size:13px; }
 </style>
 </head>
 <body>
@@ -23,7 +25,7 @@
 %>
 <div class="content container" id="content">
 	<h2 class="title">제품 입고</h2>
-	<form name="frm1" id="frm1" action="ProductWearingCtrl" method="post">
+	<form name="frm1" id="frm1" action="<%=request.getContextPath() %>/ProductWearingCtrl" method="post">
 		<table class="table">
 			<tbody>
 				<tr>
@@ -31,7 +33,7 @@
 					<td><img src="<%=request.getContextPath() %>/upload/<%=vo.getProPic() %>" alt="<%=vo.getProName() %>"></td>
 				</tr>
 				<tr>
-					<th>제품번호</th>
+					<th>제품 번호</th>
 					<td><%=vo.getProNo() %><br>
 						<input type="hidden" name="proNo" id="proNo" value="<%=vo.getProNo() %>">
 					</td>
@@ -45,7 +47,7 @@
 					<td><%=vo.getProName() %></td>
 				</tr>
 				<tr>
-					<th><strong style="color:red">입고할 수량</strong></th>
+					<th><strong style="color:#000">입고할 수량</strong></th>
 					<td>
 						<input type="number" name="amount" id="amount" class="form-control" />
 					</td>
@@ -53,8 +55,8 @@
 			</tbody>
 		</table>
 		<div class="btn-group">
-			<button type="submit" class="btn btn-danger">제품 입고</button>
-			<a href="<%=request.getContextPath() %>/GetProductListCtrl" class="btn btn-primary">목록으로</a>
+			<button type="submit" class="btn btn-outline-dark">제품 입고</button>&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="<%=request.getContextPath() %>/GetProductListCtrl" class="btn btn-outline-dark">목록</a>
 		</div>
 	</form>
 </div>

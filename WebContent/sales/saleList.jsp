@@ -12,7 +12,9 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 <link rel="stylesheet" href="common.css">
 <style>
-.title { padding-top:36px; padding-bottom:20px; }
+.title { padding-top:36px; padding-bottom:20px; font-size:25px; text-align:center; }
+.btn-group { padding-left:450px; }
+.table { font-size:13px; }
 </style>
 </head>
 <body>

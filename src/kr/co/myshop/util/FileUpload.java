@@ -40,6 +40,7 @@ public class FileUpload extends HttpServlet {
     String proSpec = "";
     int oriPrice = 0;
     double discountRate = 0.1D;
+    String proPic0 = "";
     String proPic = "";
     String proPic2 = "";
     try {
@@ -53,26 +54,24 @@ public class FileUpload extends HttpServlet {
       proSpec = multi.getParameter("proSpec");
       oriPrice = Integer.parseInt(multi.getParameter("oriPrice"));
       discountRate = Double.parseDouble(multi.getParameter("discountRate"));
+      
       Enumeration<String> files = multi.getFileNames();
-      String file1 = files.nextElement();
-      proPic = multi.getFilesystemName(file1);
-      if (proPic != null) {
-        proPic = multi.getFilesystemName(file1);
-      } else {
-        proPic = "noimage.jpg";
-      } 
-      String file2 = files.nextElement();
-      proPic2 = multi.getFilesystemName(file2);
-      if (proPic2 != null) {
-        proPic2 = multi.getFilesystemName(file2);
-      } else {
-        proPic2 = "noimage.jpg";
-      } 
+            
+      files.nextElement();
+      proPic = multi.getParameter("img1");
+      
+      System.out.println(proPic);
+      
+      files.nextElement();
+      proPic2 = multi.getParameter("img2");
+      
+      System.out.println(proPic2);
+      
       try {
         Class.forName("com.mysql.cj.jdbc.Driver");
-        this.sql = "insert into product(cateno, proname, prospec, oriprice, discountrate, propic, propic2) values (?,?,?,?,?,?,?)";
         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/myshop?serverTimezone=Asia/Seoul", "root", "a1234");
-        PreparedStatement pstmt = con.prepareStatement(this.sql);
+        sql = "insert into product(cateno, proname, prospec, oriprice, discountrate, propic, propic2) values (?,?,?,?,?,?,?)";
+        PreparedStatement pstmt = con.prepareStatement(sql);
         pstmt.setInt(1, cateNo);
         pstmt.setString(2, proName);
         pstmt.setString(3, proSpec);

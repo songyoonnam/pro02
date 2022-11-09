@@ -13,7 +13,9 @@
 <link rel="stylesheet" href="common.css">
 
 <style>
-.title { padding-top:36px; padding-bottom:20px; }
+.title { padding-top:36px; padding-bottom:20px; font-size:25px; text-align:center; }
+.btn-group { padding-left:450px; }
+.table { font-size:13px; }
 </style>
 </head>
 <body>
@@ -61,9 +63,9 @@
 				</tbody>
 			</table>
 			<div class="btn-group">
-				<a href="<%=request.getContextPath() %>/GetMemberSalesInfoCtrl" class="btn btn-outline-dark">목록</a>
+				<a href="<%=request.getContextPath() %>/GetMemberSalesInfoCtrl" class="btn btn-outline-dark">목록</a>&nbsp;&nbsp;&nbsp;&nbsp;
 				<% if(vo.getCusId().equals(sid) && vo.getParselState()==0) { %>
-				<a href="<%=request.getContextPath() %>/DeleteSalesCtrl?saleNo=<%=vo.getSaleNo() %>" class="btn btn-outline-dark">결제 취소</a>
+				<a href="<%=request.getContextPath() %>/DeleteSalesCtrl?saleNo=<%=vo.getSaleNo() %>" class="btn btn-outline-dark">결제 취소</a>&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="<%=request.getContextPath() %>/UpdateSalesCtrl?parselNo=<%=vo.getParselNo() %>" class="btn btn-outline-dark">배송 정보 수정</a>
 				<% } %>
 			</div>

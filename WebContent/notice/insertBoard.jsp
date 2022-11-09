@@ -12,7 +12,9 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 <link rel="stylesheet" href="../common.css">
 <style>
-.title { padding-top:36px; padding-bottom:20px; }
+.title { padding-top:36px; padding-bottom:20px; text-align:center; font-size:25px;}
+.btn-group {padding-left:450px;}
+.table { font-size:13px; }
 </style>
 </head>
 <body>
@@ -49,8 +51,8 @@
 					</tbody>
 				</table>
 				<div class="btn-group">
-					<input type="submit" name="submit-btn" class="btn btn-outline-dark" value="글 등록">
-					<input type="reset" name="reset-btn" class="btn btn-outline-dark" value="취소">
+					<input type="submit" name="submit-btn" class="btn btn-outline-dark" value="글 등록">&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="reset" name="reset-btn" class="btn btn-outline-dark" value="취소">&nbsp;&nbsp;&nbsp;&nbsp;
 					<a href="<%=request.getContextPath() %>/GetBoardListCtrl" class="btn btn-outline-dark">목록</a>
 				</div>
 			</form>	

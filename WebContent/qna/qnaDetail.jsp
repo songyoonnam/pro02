@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>공지사항 목록</title>
+<title>QnA</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-latest.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -21,7 +21,7 @@
 <body>
 <%@ include file="../header.jsp" %>
 <%
-	Notice vo = (Notice) request.getAttribute("notice");
+	Qna vo = (Qna) request.getAttribute("qna");
 %>
 <div class="container-fluid" id="content">
 	<div class="row" id="content_row">
@@ -33,12 +33,36 @@
 		<% } else { %>
 		<main class="content container">
 		<% } %>
-			<h2 class="title">공지사항 목록</h2>
+			<h2 class="title">QnA</h2>
 			<table class="table">
 				<tbody>
 					<tr>
+						<th>구분</th>
+						<td>
+						<%
+						if(vo.getLev()==0){
+							out.println("<span>질문</span>");
+						} else {
+							out.println("<span>답변</span>");
+						}
+						%>
+						</td>
+					</tr>
+					<tr>
+						<th>공개여부</th>
+						<td>
+						<%
+						if(vo.getSec().equals("Y")){
+							out.println("<span>비공개</span>");
+						} else {
+							out.println("<span>공개</span>");
+						}
+						%>
+						</td>
+					</tr>
+					<tr>
 						<th>번호</th>
-						<td><%=vo.getNotiNo() %></td>
+						<td><%=vo.getNo() %></td>
 					</tr>
 					<tr>
 						<th>제목</th>
@@ -63,11 +87,32 @@
 				</tbody>
 			</table>
 			<div class="btn-group">
-				<a href="<%=request.getContextPath() %>/GetBoardListCtrl" class="btn btn-outline-dark">목록</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<% if(sid!=null && sid.equals("admin")) { %>
-				<a href="<%=request.getContextPath() %>/DeleteBoardCtrl?notiNo=<%=vo.getNotiNo() %>" class="btn btn-outline-dark">삭제</a>&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="<%=request.getContextPath() %>/UpdateBoardCtrl?notiNo=<%=vo.getNotiNo() %>" class="btn btn-outline-dark">수정</a>
-				<% } %>
+				<a href="<%=request.getContextPath() %>/GetQnaListCtrl.do" class="btn btn-outline-dark">목록</a>&nbsp;&nbsp;&nbsp;&nbsp;
+				<%
+					if(sid.equals("admin")) {
+						if(vo.getLev()==0){
+				%>
+					<a href='QnaReplyWriteCtrl.do?parno=<%=vo.getNo() %>' class="btn btn-outline-dark">답변하기</a>&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href='UpdateQnaCtrl.do?no=<%=vo.getNo() %>' class="btn btn-outline-dark">수정</a>&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href='DeleteQnaCtrl.do?parno=<%=vo.getNo() %>' class="btn btn-outline-dark">삭제</a>&nbsp;&nbsp;&nbsp;&nbsp;
+				<%
+						} else {
+				%>
+					<a href='UpdateQnaCtrl.do?no=<%=vo.getNo() %>' class="btn btn-outline-dark">수정</a>&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href='DeleteQnaCtrl.do?no=<%=vo.getNo() %>' class="btn btn-outline-dark">삭제</a>&nbsp;&nbsp;&nbsp;&nbsp;
+				<%
+						}
+					} else if(sid.equals(vo.getAuthor())){
+				%>
+					<a href='UpdateQnaCtrl.do?no=<%=vo.getNo() %>' class="btn btn-outline-dark">수정</a>&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href='DeleteQnaCtrl.do?parno=<%=vo.getNo() %>' class="btn btn-outline-dark">삭제</a>&nbsp;&nbsp;&nbsp;&nbsp;
+				<%		
+					} else {
+				%>
+					<p style="clear:both">글 작성자가 아닙니다</p>
+				<%
+					}
+				%>
 			</div>
 		</main>
 	</main>		

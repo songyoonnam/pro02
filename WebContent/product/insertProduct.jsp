@@ -25,7 +25,7 @@
 %>
 <div class="content container" id="content">
 	<h2 class="title">제품 등록</h2>
-	<form name="frm1" id="frm1" action="<%=request.getContextPath() %>/FileUpload" method="post" enctype="multipart/form-data">
+	<form name="frm1" id="frm1" action="<%=request.getContextPath() %>/FileUpload" method="post" enctype="multipart/form-data" onsubmit="return imgCheck(this)">
 		<table class="table">
 			<tbody>
 				<tr>
@@ -61,11 +61,17 @@
 				</tr>
 				<tr>
 					<th>제품 이미지1</th>
-					<td><input type="file" name="proPic" id="proPic" accept="image/*" class="form-control" required></td>
+					<td>
+						<input type="file" name="proPic" id="proPic" accept="image/*" class="form-control" required>
+						<input type="hidden" name="img1" id="img1" />
+					</td>
 				</tr>
 				<tr>
 					<th>제품 이미지2</th>
-					<td><input type="file" name="proPic2" id="proPic2" accept="image/*" class="form-control"></td>
+					<td>
+						<input type="file" name="proPic2" id="proPic2" accept="image/*" class="form-control">
+						<input type="hidden" name="img2" id="img2" />
+					</td>
 				</tr>
 			</tbody>
 		</table>
@@ -74,7 +80,19 @@
 			<input type="reset" name="reset-btn" class="btn btn-outline-dark" value="취소">&nbsp;&nbsp;&nbsp;&nbsp;
 			<a href="<%=request.getContextPath() %>/GetProductListCtrl" class="btn btn-outline-dark">목록</a>
 		</div>
-	</form>	
+	</form>
+	<script>
+	function imgCheck(f){
+		var i1 = f.proPic.value;
+		var i2 = f.proPic2.value;
+		var ipos1 = i1.lastIndexOf("\\");
+		var ipos2 = i2.lastIndexOf("\\");
+		f.img1.value = i1.substr(ipos1+1);
+		f.img2.value = i2.substr(ipos2+1);
+		//f.img1.value = i1;
+		//f.img2.value = i2;
+	}
+	</script>	
 </div>
 <%@ include file="../footer.jsp" %>
 </body>

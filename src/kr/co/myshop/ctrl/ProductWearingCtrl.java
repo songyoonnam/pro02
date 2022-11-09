@@ -37,28 +37,29 @@ public class ProductWearingCtrl extends HttpServlet {
     ResultSet rs = null;
     try {
       Class.forName("com.mysql.cj.jdbc.Driver");
-      this.sql = "select * from wearing where prono=?";
+      sql = "select * from wearing where prono=?";
       Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/myshop?serverTimezone=Asia/Seoul", "root", "a1234");
       con.setAutoCommit(false);
-      PreparedStatement pstmt = con.prepareStatement(this.sql);
+      PreparedStatement pstmt = con.prepareStatement(sql);
       pstmt.setInt(1, proNo);
       rs = pstmt.executeQuery();
       if (rs.next()) {
-        this.sql = "update wearing set amount=amount+? where prono=?";
+        sql = "update wearing set amount=amount+? where prono=?";
         pstmt = con.prepareStatement(this.sql);
         pstmt.setInt(1, amount);
         pstmt.setInt(2, proNo);
         pstmt.executeUpdate();
       } else {
-        this.sql = "insert into wearing(prono, amount) values (?, ?)";
-        pstmt = con.prepareStatement(this.sql);
+        sql = "insert into wearing(prono, amount) values (?, ?)";
+        pstmt = con.prepareStatement(sql);
         pstmt.setInt(1, proNo);
         pstmt.setInt(2, amount);
         pstmt.executeUpdate();
       } 
-      response.sendRedirect("GetProductDetailCtrl?proNo=" + proNo);
       con.commit();
       con.setAutoCommit(true);
+      
+      response.sendRedirect("GetProductDetailCtrl?proNo=" + proNo);
       pstmt.close();
       con.close();
     } catch (Exception e) {

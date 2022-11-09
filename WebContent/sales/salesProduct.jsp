@@ -24,7 +24,7 @@
 	Product vo = (Product) request.getAttribute("pro");
 %>
 <div class="content container" id="content">
-	<h2 class="title">제품 구매하기</h2>
+	<h2 class="title">제품 구매</h2>
 	<form name="frm1" id="frm1" action="<%=request.getContextPath() %>/InsertSaleCtrl" method="post" onsubmit="return payCheck(this)">
 		<h3>제품 정보</h3>
 		<input type="hidden" name="cusId" id="cusId" value="<%=sid %>" />
@@ -36,7 +36,7 @@
 					<td><img src="<%=request.getContextPath() %>/upload/<%=vo.getProPic() %>" alt="<%=vo.getProName() %>"></td>
 				</tr>
 				<tr>
-					<th>제품번호</th>
+					<th>제품 번호</th>
 					<td></td>
 				</tr>
 				<tr>
@@ -78,7 +78,7 @@
 					<td><input type="text" name="address1" id="address1" placeholder="기본 주소 입력" class="form-control" required /><br>
 					<input type="text" name="address2" id="address2" placeholder="상세 주소 입력" class="form-control" required /><br>
 					<input type="text" name="postcode" id="postcode" style="width:160px;float:left;margin-right:20px;" placeholder="우편번호" class="form-control" required>
-					<button type="button" id="post_btn" onclick="findAddr()" class="btn btn-primary" style="margin-bottom:36px;">우편번호 검색</button>
+					<button type="button" id="post_btn" onclick="findAddr()" class="btn btn-outline-dark" style="margin-bottom:36px;">우편번호 검색</button>
 					</td>
 				</tr>
 				<tr>
@@ -91,9 +91,6 @@
 		</table>
 		<hr>
 		<h3>결제 정보</h3>
-		<div class="btn-group" style="margin-bottom:36px;">
-			<button type="button" id="pay" class="btn btn-primary">결제하기</button>
-		</div>
 		<table class="table">
 			<tbody>
 				<tr>
@@ -120,8 +117,11 @@
 		</table>
 		<div class="btn-group" style="margin-bottom:36px;">
 		<% if(vo.getAmount()!=0) { %>
-		<input type="submit" class="btn btn-primary" value="제품 구매">
+		<input type="submit" class="btn btn-outline-dark" value="제품 구매">
 		<% } %>
+		</div>
+		<div class="btn-group" style="margin-bottom:36px;">
+			<button type="button" id="pay" class="btn btn-outline-dark">결제</button>
 		</div>
 	</form>
 	<script>

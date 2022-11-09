@@ -12,7 +12,10 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 <link rel="stylesheet" href="common.css">
 <style>
-.title { padding-top:36px; padding-bottom:20px; }
+.title { padding-top:36px; padding-bottom:20px; text-align:center; font-size:25px;}
+.btn-group {padding-left:450px;}
+.table { font-size:13px; }
+.form-control {font-size:13px; }
 </style>
 </head>
 <body>
@@ -85,9 +88,9 @@
 			</tbody>
 		</table>
 		<div class="btn-group">
-			<input type="submit" name="submit-btn" class="btn btn-info" value="제품 정보 변경">
-			<input type="reset" name="reset-btn" class="btn btn-info" value="취소">
-			<a href="<%=request.getContextPath() %>/GetProductListCtrl" class="btn btn-danger">목록으로</a>
+			<input type="submit" name="submit-btn" class="btn btn-outline-dark" value="제품 정보 변경">&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="reset" name="reset-btn" class="btn btn-outline-dark" value="취소">&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="<%=request.getContextPath() %>/GetProductListCtrl" class="btn btn-outline-dark">목록</a>
 		</div>
 	</form>	
 	<script>

@@ -6,12 +6,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>공지사항 목록</title>
+<title>장바구니 목록</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-latest.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 <link rel="stylesheet" href="common.css">
-
 <style>
 .title { padding-top:36px; padding-bottom:20px; text-align:center; font-size:25px;}
 .btn-group {padding-left:450px;}
@@ -21,7 +20,7 @@
 <body>
 <%@ include file="../header.jsp" %>
 <%
-	Notice vo = (Notice) request.getAttribute("notice");
+	List<CartListVO> cartList = (ArrayList<CartListVO>) request.getAttribute("cartList");
 %>
 <div class="container-fluid" id="content">
 	<div class="row" id="content_row">
@@ -33,44 +32,32 @@
 		<% } else { %>
 		<main class="content container">
 		<% } %>
-			<h2 class="title">공지사항 목록</h2>
+			<h2 class="title">장바구니</h2>
 			<table class="table">
+				<thead>
+					<tr>
+						<th>번호</th><th>제품명</th><th>제품사진</th><th>구매</th>
+					</tr>
+				</thead>
 				<tbody>
+				<% if(cartList.size()!=0) { %>
+					<% for(int i=0;i<cartList.size();i++){
+						CartListVO vo = cartList.get(i);
+					%>
 					<tr>
-						<th>번호</th>
-						<td><%=vo.getNotiNo() %></td>
+						<td><%=cartList.size()-i %></td>
+						<td><%=vo.getProName() %> (구매가격 : <%=vo.getProPrice() %>)</td>
+						<td><img src="upload/<%=vo.getProPic() %>" alt="<%=vo.getProName() %>" style="max-height:80px; width:auto;"></td>
+						<td><a href="<%=request.getContextPath() %>/CartToSaleCtrl?proNo=<%=vo.getProNo() %>&cartNo=<%=vo.getCartNo() %>" class="btn btn-outline-dark">구매</a></td>
 					</tr>
-					<tr>
-						<th>제목</th>
-						<td><%=vo.getTitle() %></td>
-					</tr>
-					<tr>
-						<th>내용</th>
-						<td><%=vo.getContent() %></td>
-					</tr>
-					<tr>
-						<th>작성자</th>
-						<td><%=vo.getAuthor() %></td>
-					</tr>
-					<tr>
-						<th>작성일시</th>
-						<td><%=vo.getResDate() %></td>
-					</tr>
-					<tr>
-						<th>읽은 횟수</th>
-						<td><%=vo.getVisited() %></td>
-					</tr>
+					<% } %>
+				<% } else { %>
+					<tr><td colspan="4">장바구니에 담은 상품이 없습니다</td></tr>
+				<% } %>		
 				</tbody>
 			</table>
-			<div class="btn-group">
-				<a href="<%=request.getContextPath() %>/GetBoardListCtrl" class="btn btn-outline-dark">목록</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<% if(sid!=null && sid.equals("admin")) { %>
-				<a href="<%=request.getContextPath() %>/DeleteBoardCtrl?notiNo=<%=vo.getNotiNo() %>" class="btn btn-outline-dark">삭제</a>&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="<%=request.getContextPath() %>/UpdateBoardCtrl?notiNo=<%=vo.getNotiNo() %>" class="btn btn-outline-dark">수정</a>
-				<% } %>
-			</div>
 		</main>
-	</main>		
+	</div>
 </div>
 <%@ include file="../footer.jsp" %>
 </body>

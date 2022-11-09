@@ -6,12 +6,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>공지사항 수정</title>
+<title>질문 쓰기</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-latest.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-<link rel="stylesheet" href="common.css">
-
+<link rel="stylesheet" href="../common.css">
 <style>
 .title { padding-top:36px; padding-bottom:20px; text-align:center; font-size:25px;}
 .btn-group {padding-left:450px;}
@@ -20,9 +19,6 @@
 </head>
 <body>
 <%@ include file="../header.jsp" %>
-<%
-	Notice vo = (Notice) request.getAttribute("notice");
-%>
 <div class="container-fluid" id="content">
 	<div class="row" id="content_row">
 		<% if(sid!=null && sid.equals("admin")) { %>
@@ -33,34 +29,45 @@
 		<% } else { %>
 		<main class="content container">
 		<% } %>
-			<h2 class="title">공지사항 수정</h2>
-			<form name="frm1" id="frm1" action="<%=request.getContextPath() %>/UpdateBoardProCtrl" method="post">
+			<h2 class="title">질문 등록</h2>
+			<form name="frm1" id="frm1" action="<%=request.getContextPath() %>/InsertQnaProCtrl.do" method="post">
 				<table class="table">
 					<tbody>
 						<tr>
-							<th>제목</th>
-							<td><input type="text" name="title" id="title" placeholder="제목 입력" class="form-control" value="<%=vo.getTitle() %>" autofocus required />
-								<input type="hidden" name="notiNo" id="notiNo" value="<%=vo.getNotiNo() %>" required/>
+							<th><label for="title">질문 제목</label></th>
+							<td><input type="text" name="title" id="title" placeholder="제목 입력" maxlength="100" class="form-control" required></td>
+						</tr>
+						<tr>
+							<th><label for="content">질문 내용</label></th>
+							<td>
+								<textarea cols="100" rows="6" name="content" placeholder="내용 입력" id="content" maxlength="600" class="form-control"></textarea>
 							</td>
 						</tr>
 						<tr>
-							<th>내용</th>
-							<td><textarea cols="80" rows="6" name="content" id="content" class="form-control" required><%=vo.getContent() %></textarea></td>
+							<th><label for="author">작성자</label></th>
+							<td>
+								<input type="text" name="author" id="author" class="form-control" value='<%=sid %>' readonly required>
+								<input type="hidden" name="lev" id="lev" value="0">
+							</td>
 						</tr>
 						<tr>
-							<th>작성자</th>
-							<td><input type="text" name="author" id="author" value="admin" class="form-control" readonly></td>
+							<th><label for="sec1">비밀글 여부</label></th>
+							<td>
+								<input type="radio" name="sec" id="sec1" value="N" checked>
+								<label for="">공개</label>
+								<input type="radio" name="sec" id="sec2" value="Y">
+								<label for="">비밀글</label>
+							</td>
 						</tr>
 					</tbody>
 				</table>
 				<div class="btn-group">
-					<input type="submit" name="submit-btn" class="btn btn-outline-dark" value="글 수정">&nbsp;&nbsp;&nbsp;&nbsp;
-					<input type="reset" name="reset-btn" class="btn btn-outline-dark" value="취소">&nbsp;&nbsp;&nbsp;&nbsp;
-					<a href="<%=request.getContextPath() %>/GetBoardListCtrl" class="btn btn-outline-dark">목록</a>
+					<button type="submit" class="btn btn-outline-dark">글쓰기</button>&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href="<%=request.getContextPath() %>/GetQnaListCtrl.do" class="btn btn-outline-dark">목록</a>
 				</div>
 			</form>
 		</main>
-	</div>		
+	</div>
 </div>
 <%@ include file="../footer.jsp" %>
 </body>

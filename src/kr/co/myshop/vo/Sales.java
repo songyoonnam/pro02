@@ -18,6 +18,7 @@ public class Sales {
   private int salePayNo;
   
   private int parselState;
+
   
   public int getSaleNo() {
     return this.saleNo;
@@ -82,4 +83,8 @@ public class Sales {
   public void setParselState(int parselState) {
     this.parselState = parselState;
   }
+
+  
+  
+  
 }

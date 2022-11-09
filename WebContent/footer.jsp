@@ -6,7 +6,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 <link rel="stylesheet" href="../common.css">
 <style>
-.foot { text-align:center; padding-left: 200px; font-size:13px; }
+.foot { text-align:center; padding-left: 450px; font-size:13px; }
 </style>    
 
 <footer class="container-fluid" id="footer">    

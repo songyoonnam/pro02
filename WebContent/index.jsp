@@ -37,7 +37,7 @@
 <%@ include file="header.jsp" %>
 <div class="container" id="content">
 	<h2 class="cate_title">BEST</h2>
-	<ul class="row" id="best">
+	<ul class="row" id="best" style="list-style: none;">
 		<% for(int i=0;i<bestPro.size();i++) { 
 			Product vo = bestPro.get(i);
 		%>	
@@ -55,7 +55,7 @@
 	</ul>
 	<br><hr><br>	
 	<h2 class="cate_title">NEW</h2>
-	<ul class="row" id="new">
+	<ul class="row" id="new" style="list-style: none;">
 		<% for(int i=0;i<newPro.size();i++) { 
 			Product vo = newPro.get(i);
 		%>	
@@ -73,7 +73,7 @@
 	</ul>
 	<br><hr><br>
 	<h2 class="cate_title">HOT</h2>
-	<ul class="row" id="hot">
+	<ul class="row" id="hot" style="list-style: none;">
 		<% for(int i=0;i<hotPro.size();i++) { 
 			Product vo = hotPro.get(i);
 		%>	

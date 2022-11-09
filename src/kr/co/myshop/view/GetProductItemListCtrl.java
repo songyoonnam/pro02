@@ -51,10 +51,11 @@ public class GetProductItemListCtrl extends HttpServlet {
         vo.setOriPrice(rs.getInt("oriprice"));
         vo.setDiscountRate(rs.getDouble("discountrate"));
         vo.setProPic(rs.getString("propic"));
-        vo.setProPic(rs.getString("propic2"));
+        vo.setProPic2(rs.getString("propic2"));
         proList.add(vo);
       } 
       request.setAttribute("proList", proList);
+      request.setAttribute("cateNo", Integer.valueOf(cateNo));
       RequestDispatcher view = request.getRequestDispatcher("./product/productList.jsp");
       view.forward((ServletRequest)request, (ServletResponse)response);
       rs.close();

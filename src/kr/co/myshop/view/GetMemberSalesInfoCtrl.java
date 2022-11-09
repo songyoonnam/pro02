@@ -54,6 +54,7 @@ public class GetMemberSalesInfoCtrl extends HttpServlet {
         vo.setParselNo(rs.getInt("parselno"));
         vo.setSalePayNo(rs.getInt("salepayno"));
         saleList.add(vo);
+  
       } 
       request.setAttribute("saleList", saleList);
       RequestDispatcher view = request.getRequestDispatcher("./sales/saleList.jsp");
